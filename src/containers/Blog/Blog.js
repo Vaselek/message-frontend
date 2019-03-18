@@ -34,6 +34,7 @@ class Blog extends Component {
   render() {
     return (
       <div className="container container-fluid text-center">
+        { this.props.error && <p style={{color: 'red'}}>{this.props.error}</p>}
         <MessageForm message={this.props.message.message}
               author={this.props.message.author}
               sendMessage={()=>this.sendMessage()}
@@ -48,7 +49,8 @@ class Blog extends Component {
 const mapStateToProps = state => {
   return {
     message: state.blog.message,
-    messages: state.blog.messages
+    messages: state.blog.messages,
+    error: state.blog.error
   }
 }
 

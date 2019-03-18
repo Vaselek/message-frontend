@@ -17,7 +17,7 @@ export const createMessage = (message) => {
     return dispatch => {
         return axios.post('/messages', message).then(
             null,
-            (error) => dispatch(createMessageFailure(error))
+            (error) => dispatch(createMessageFailure(error.response.data.error))
         )
     }
 }
